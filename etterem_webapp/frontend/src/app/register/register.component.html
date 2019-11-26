@@ -1,0 +1,23 @@
+<div>
+    <h2>Register Detail</h2>
+    <div>
+      <p>
+          <label>Name:
+              <input [(ngModel)]="user.username" placeholder="User Name"/>
+          </label>
+      </p>
+      <p>
+          <label>Role:
+              <input [(ngModel)]="user.role" placeholder="User Role"/>
+          </label>
+      </p>
+      <p>
+          <label>Password:
+              <input type="password" [(ngModel)]="user.password" placeholder="User Password"/>
+          </label>
+      </p>
+    </div>
+    <button (click)="goBack()">go back</button>
+     
+    <button (click)="save()">save</button>
+  </div>
