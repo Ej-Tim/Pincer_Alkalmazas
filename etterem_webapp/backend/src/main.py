@@ -5,7 +5,6 @@ from flask import jsonify
 from flask import flash, request, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
 ###LOGIN###
 @app.route('/')
 def home():
@@ -748,7 +747,6 @@ def delete_food_order(id):
 ###TABELFOOD###
 @app.route('/tables/foods')
 def get_tablesFoods():
-
 	conn = None
 	cursor = None
 	try:
@@ -769,7 +767,6 @@ def get_tablesFoods():
 
 @app.route('/table/<int:table_order_id>/foods')
 def get_tableFoods(table_order_id):
-
 	conn = None
 	cursor = None
 	try:
