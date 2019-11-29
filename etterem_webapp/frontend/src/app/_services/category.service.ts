@@ -26,8 +26,8 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   /** GET users from the server */
-  getCategorys(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.url + '/Categorys');
+  getCategories(): Observable<Category[]> {
+    return this.http.get<Category[]>(this.url + '/categories');
   }
   
   /** GET category by id. Will 404 if id not found */

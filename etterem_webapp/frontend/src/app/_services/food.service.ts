@@ -35,6 +35,10 @@ export class FoodService {
     const url = `${this.url}/food/${id}`;
     return this.http.get<Food>(url);
   }
+  getFoodbyCategory(category_id: Number): Observable<any> {
+    const url = `${this.url}/category/${category_id}/foods`;
+    return this.http.get<Food>(url);
+  }
   
   /** POST: add a new food to the server */
   addFood(food: Food) {

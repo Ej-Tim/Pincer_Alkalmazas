@@ -10,6 +10,12 @@ import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
+import { OrdersComponent } from './orders/orders.component';
+import { TablesComponent } from './tables/tables.component';
+import { FoodsComponent } from './foods/foods.component';
+
+import {ButtonModule} from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,13 +23,18 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     RegisterComponent,
     UserListComponent,
     UserEditComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    OrdersComponent,
+    TablesComponent,
+    FoodsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

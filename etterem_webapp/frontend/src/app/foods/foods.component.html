@@ -1,0 +1,7 @@
+<h1>Ételek</h1>
+<div>
+    <tr *ngFor="let category of categories">
+        <th>{{category.name}}</th>
+    </tr>
+    <button pButton type="button" label="Vissza" (click)="goBack()"></button>
+</div>

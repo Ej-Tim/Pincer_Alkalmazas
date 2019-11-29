@@ -22,7 +22,7 @@ export class UserListComponent implements OnInit {
 	getUsers(): void {
 		this.userService.getUsers().subscribe(users => this.users = users);
 	}
-  
+
 	delete(user: User): void {
 		this.userService.deleteUser(user).subscribe(success=> {this.getUsers();});		
 	}

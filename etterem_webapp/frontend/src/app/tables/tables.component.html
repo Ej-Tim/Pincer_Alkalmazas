@@ -1,0 +1,8 @@
+<h1>Asztalok</h1>
+<table>
+  <tr >
+    <td *ngFor="let table of tables">
+        <button pButton type="button" label="{{table.id}}" routerLink="/foods/{{table.id}}" ></button>   
+    </td> 
+  </tr>
+</table>
