@@ -14,8 +14,12 @@ import { OrdersComponent } from './orders/orders.component';
 import { TablesComponent } from './tables/tables.component';
 import { FoodsComponent } from './foods/foods.component';
 
-import {ButtonModule} from 'primeng/button';
+import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SidebarModule } from 'primeng/sidebar';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { AppetizersComponent } from './appetizers/appetizers.component';
 
 @NgModule({
   declarations: [
@@ -26,15 +30,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserDetailComponent,
     OrdersComponent,
     TablesComponent,
-    FoodsComponent
-  ],
+    FoodsComponent,
+    AppetizersComponent
+],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     ButtonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    SidebarModule,
+    SelectButtonModule,
+    TabMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

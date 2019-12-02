@@ -1,16 +1,15 @@
 <h1>Ételek</h1>
 <div>
-    <ul>
-        <li *ngFor="let category of categories">
-            {{category.name}}
-            <ul>
-                <p *ngFor="let food of foods">
-                    <ng-container *ngIf="category.id == food.category_id">
-                        {{food.name}}
-                    </ng-container>
-                </p>
-            </ul>
-        </li>
-    </ul>
-    <button pButton type="button" label="Vissza" (click)="goBack()"></button>
+
+    <p-tabMenu [model]="catok" [activeItem]="activeFood"></p-tabMenu>
+
+    <router-outlet></router-outlet>
+
+    <button pButton type="button" label="Vissza" routerLink="/tables"></button>
+
+    <p-sidebar [(visible)]="display" position="right">
+        Content
+    </p-sidebar>
+        
+    <button type="text" (click)="display = true" pButton label="Rendelés"></button>
 </div>

@@ -1,0 +1,5 @@
+<p *ngFor="let food of foods">
+    <ng-container *ngIf="cat_id == food.category_id">
+        {{food.name}} {{food.price}}Ft
+    </ng-container>    
+</p>
