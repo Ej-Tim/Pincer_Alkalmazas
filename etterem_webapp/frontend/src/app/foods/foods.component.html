@@ -1,7 +1,16 @@
 <h1>Ételek</h1>
 <div>
-    <tr *ngFor="let category of categories">
-        <th>{{category.name}}</th>
-    </tr>
+    <ul>
+        <li *ngFor="let category of categories">
+            {{category.name}}
+            <ul>
+                <p *ngFor="let food of foods">
+                    <ng-container *ngIf="category.id == food.category_id">
+                        {{food.name}}
+                    </ng-container>
+                </p>
+            </ul>
+        </li>
+    </ul>
     <button pButton type="button" label="Vissza" (click)="goBack()"></button>
 </div>
