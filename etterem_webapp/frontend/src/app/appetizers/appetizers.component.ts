@@ -13,18 +13,24 @@ import { SelectItem } from 'primeng/api/selectitem';
 export class AppetizersComponent implements OnInit {
 
   foods: Food[] = [];
+  foodbyCategory: Food[] = [];
   foodok: SelectItem[] = [];
   cat_id: Number;
+  val: Number[] = [];
 
   constructor(private route: ActivatedRoute, private foodService: FoodService) { }
 
   ngOnInit() {
     this.cat_id = + this.route.snapshot.paramMap.get('cat_id');
-    this.get_Foods();
+    this.get_FoodbyCategory();
   }
 
   get_Foods(): void{
     this.foodService.getFoods().subscribe(foods => this.foods = foods);
+  }
+
+  get_FoodbyCategory(): void{
+    this.foodService.getFoodbyCategory(this.cat_id).subscribe(foodbyCategory => this.foodbyCategory = foodbyCategory);
   }
 
   get_Foodok(): void{

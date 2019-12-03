@@ -13,13 +13,14 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { OrdersComponent } from './orders/orders.component';
 import { TablesComponent } from './tables/tables.component';
 import { FoodsComponent } from './foods/foods.component';
+import { AppetizersComponent } from './appetizers/appetizers.component';
 
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarModule } from 'primeng/sidebar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TabMenuModule } from 'primeng/tabmenu';
-import { AppetizersComponent } from './appetizers/appetizers.component';
+import { SpinnerModule } from 'primeng/spinner';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AppetizersComponent } from './appetizers/appetizers.component';
     BrowserAnimationsModule,
     SidebarModule,
     SelectButtonModule,
-    TabMenuModule
+    TabMenuModule,
+    SpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

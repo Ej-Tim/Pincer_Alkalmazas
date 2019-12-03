@@ -1,5 +1,7 @@
-<p *ngFor="let food of foods">
-    <ng-container *ngIf="cat_id == food.category_id">
-        {{food.name}} {{food.price}}Ft
-    </ng-container>    
-</p>
+<table>
+<tr *ngFor="let food of foodbyCategory; let i = index">
+    <td>{{food.name}}</td> 
+    <td>{{food.price}}Ft</td>
+    <td><p-spinner [(ngModel)]="val[i]" [min]="0"></p-spinner></td>
+</tr>
+</table>

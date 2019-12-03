@@ -793,7 +793,7 @@ def get_categoryFoods(category_id):
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("select food.id, food.name, food.category_id from food join category on food.category_id = category.id where category.id = %s", category_id)
+		cursor.execute("select food.id, food.name, food.price, food.category_id from food join category on food.category_id = category.id where category.id = %s", category_id)
 		rows = cursor.fetchall()
 		resp = jsonify(rows)
 		resp.status_code = 200
