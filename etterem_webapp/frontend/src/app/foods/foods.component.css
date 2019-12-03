@@ -1,0 +1,32 @@
+h1 {
+    color:#fa4252;
+    text-align:center;
+    font-family:arial;
+    font-size:250%;
+    font-weight:bold;
+}
+
+div {
+    /*border:solid black;*/
+    color:white;
+    font-family:courier;
+    font-weight:bold;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #fe6845;
+    border:solid #ffa259 !important;
+    border-radius:5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+    color:white;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color:#ffa259 !important;
+    color:#fa4252 !important;
+}
