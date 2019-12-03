@@ -5,3 +5,14 @@
     <td><p-spinner [(ngModel)]="val[i]" [min]="0"></p-spinner></td>
 </tr>
 </table>
+
+<p-sidebar [(visible)]="display" position="right">
+    <p *ngFor="let food of foodbyCategory; let i = index">
+        <ng-container *ngIf="val[i] > 0">        
+            {{food.name}} {{food.price}}Ft {{val[i]}}db
+        </ng-container>
+    </p>
+    <button pButton type="button" class="button" label="Megrendel"></button>
+</p-sidebar>
+
+<button type="text" class="button" (click)="display = true" pButton label="Rendelés"></button>
