@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
-import { ActivatedRoute, Router } from '@angular/router';
 import { Table_order } from '../_models';
 import { Table_orderService } from '../_services';
 

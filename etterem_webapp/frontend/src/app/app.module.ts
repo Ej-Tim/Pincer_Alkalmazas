@@ -14,6 +14,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { TablesComponent } from './tables/tables.component';
 import { FoodsComponent } from './foods/foods.component';
 import { AppetizersComponent } from './appetizers/appetizers.component';
+import { ChefComponent } from './chef/chef.component';
 
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,7 +33,8 @@ import { SpinnerModule } from 'primeng/spinner';
     OrdersComponent,
     TablesComponent,
     FoodsComponent,
-    AppetizersComponent
+    AppetizersComponent,
+    ChefComponent
 ],
   imports: [
     BrowserModule,

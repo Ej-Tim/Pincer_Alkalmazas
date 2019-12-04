@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
 
-import { Food } from './../_models';
+import { Food, OrderedFood } from './../_models';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -35,6 +34,12 @@ export class FoodService {
     const url = `${this.url}/food/${id}`;
     return this.http.get<Food>(url);
   }
+
+  getFoodsbyTable(table_id: Number):Observable<any> {
+    const url = `${this.url}/table/${table_id}/foods`;
+    return this.http.get<OrderedFood>(url);
+  }
+
   getFoodbyCategory(category_id: Number): Observable<any> {
     const url = `${this.url}/category/${category_id}/foods`;
     return this.http.get<Food>(url);

@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Food, Category } from '../_models'
-import { FoodService, CategoryService } from '../_services';
-import {MenuItem} from 'primeng/api';
-
+import { Category } from '../_models'
+import { CategoryService } from '../_services';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-foods',
@@ -14,15 +13,13 @@ import {MenuItem} from 'primeng/api';
 export class FoodsComponent implements OnInit {
 
   categories: Category[] = [];
-  foods: Food[] = [];
   catok: MenuItem[] = [];
   activeFood: MenuItem;
 
-  constructor(private route: ActivatedRoute, private categoryService: CategoryService, private foodService: FoodService) {}
+  constructor(private route: ActivatedRoute, private categoryService: CategoryService) {}
 
   ngOnInit() {
     this.get_Categories();
-    this.get_Foods();
     this.get_Categorik();
   }
 
@@ -30,13 +27,8 @@ export class FoodsComponent implements OnInit {
     this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
-  get_Foods(): void{
-    this.foodService.getFoods().subscribe(foods => this.foods = foods);
-  }
-
   get_Categorik(): void{
     const id = + this.route.snapshot.paramMap.get('id');
-    const cat_id = + this.route.snapshot.paramMap.get('cat_id');
     this.categoryService.getCategories().subscribe(catok =>{
       var n = Object.keys(this.categories).length;
       for(let i = 0; i < n; i++) {

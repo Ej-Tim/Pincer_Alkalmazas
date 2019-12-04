@@ -774,7 +774,7 @@ def get_tableFoods(table_order_id):
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("select food.id, food.name, food.category_id from food_order join food on food_order.food_id = food.id where table_order_id=%s", table_order_id)
+		cursor.execute("select food.id, food.name, food.category_id, food_order.quantity from food_order join food on food_order.food_id = food.id where table_order_id=%s", table_order_id)
 		rows = cursor.fetchall()
 		resp = jsonify(rows)
 		resp.status_code = 200

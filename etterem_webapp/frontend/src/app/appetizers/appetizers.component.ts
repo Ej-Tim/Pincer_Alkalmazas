@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, getDebugNode } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Food, Food_order } from '../_models'
+import { Food, Food_order, OrderedFood } from '../_models'
 import { FoodService, Food_orderService } from '../_services';
-import { escapeIdentifier } from '@angular/compiler/src/output/abstract_emitter';
 
 @Component({
   selector: 'app-appetizers',
@@ -14,7 +13,7 @@ import { escapeIdentifier } from '@angular/compiler/src/output/abstract_emitter'
 export class AppetizersComponent implements OnInit {
 
   foodbyCategory: Food[] = [];
-  toBeOrdered: Food[];
+  toBeOrdered: OrderedFood[] = [];
   cat_id: number;
   id: number;
   val: number[] = [];
@@ -28,7 +27,6 @@ export class AppetizersComponent implements OnInit {
     this.get_FoodbyCategory();
   }
 
-
   get_FoodbyCategory(): void{
     this.foodService.getFoodbyCategory(this.cat_id).subscribe(foodbyCategory => this.foodbyCategory = foodbyCategory);
   }
@@ -39,27 +37,23 @@ export class AppetizersComponent implements OnInit {
       if ( this.val[i] > 0) {
         this.toBeOrdered.push(
           {
+            id: this.foodbyCategory[i].id,
             name: this.foodbyCategory[i].name,
             price: this.foodbyCategory[i].price,
-            category_id: this.foodbyCategory[i].category_id
+            quantity: this.val[i]
           });
       }
     }
   }
 
-  init_Food_Order(): void{
-    this.food_order = { table_order_id: this.id, food_id: 3, quantity: 1};
-  }
-
   megrendel(): void {
+    this.rendeles();
     this.id = + this.route.parent.snapshot.paramMap.get('id');
-    for (let i = 0; i < this.foodbyCategory.length; i++){
-      if ( this.val[i] > 0){  
-        this.food_order = { table_order_id: this.id, food_id: this.foodbyCategory[i].id, quantity: this.val[i]};
-        this.food_orderService.addFood_order(this.food_order).subscribe(() => this.goBack());
+    for (let i = 0; i < this.toBeOrdered.length; i++){
+        this.food_order = { table_order_id: this.id, food_id: this.toBeOrdered[i].id, quantity: this.toBeOrdered[i].quantity};
+        this.food_orderService.addFood_order(this.food_order).subscribe();
       }
     }
-  }
   
   goBack(): void {
 		this.location.back();

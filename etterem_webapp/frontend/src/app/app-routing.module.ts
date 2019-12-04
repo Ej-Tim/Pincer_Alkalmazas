@@ -9,6 +9,7 @@ import { TablesComponent } from './tables/tables.component'
 import { FoodsComponent } from './foods/foods.component';
 import { OrdersComponent } from './orders/orders.component';
 import { AppetizersComponent } from './appetizers/appetizers.component';
+import { ChefComponent } from './chef/chef.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/tables', pathMatch: 'full' },
@@ -22,7 +23,11 @@ const routes: Routes = [
       path: ':cat_id', component: AppetizersComponent
     }
   ]},
-  { path: 'orders', component: OrdersComponent }
+  { path: 'orders', component: OrdersComponent, children: [
+    {
+      path: ':table_id', component: ChefComponent
+    }
+  ] }
 ];
 
 @NgModule({
