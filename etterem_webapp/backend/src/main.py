@@ -639,7 +639,7 @@ def get_food_orders():
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("SELECT id, table_order_id, food_id FROM food_order")
+		cursor.execute("SELECT id, table_order_id, food_id, quantity FROM food_order")
 		rows = cursor.fetchall()
 		resp = jsonify(rows)
 		resp.status_code = 200
@@ -656,7 +656,7 @@ def get_food_order(id):
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("SELECT id, table_order_id, food_id FROM food_order WHERE id=%s", id)
+		cursor.execute("SELECT id, table_order_id, food_id, quantity FROM food_order WHERE id=%s", id)
 		row = cursor.fetchone()
 		resp = jsonify(row)
 		resp.status_code = 200
@@ -675,10 +675,11 @@ def add_food_order():
 		_json = request.json
 		_table_order_id = _json['table_order_id']
 		_food_id = _json['food_id']
+		_quantity = _json['quantity']
 		# validate the received values
-		if _table_order_id and _food_id and request.method == 'POST':
-			sql = "INSERT INTO food_order(table_order_id, food_id) VALUES(%s, %s)"
-			data = (_table_order_id, _food_id)
+		if _table_order_id and _food_id and _quantity and request.method == 'POST':
+			sql = "INSERT INTO food_order(table_order_id, food_id, quantity) VALUES(%s, %s, %s)"
+			data = (_table_order_id, _food_id, _quantity)
 			conn = mysql.connect()
 			cursor = conn.cursor()
 			cursor.execute(sql, data)
@@ -704,11 +705,12 @@ def update_food_order():
 		_id = _json['id']
 		_table_order_id = _json['table_order_id']
 		_food_id = _json['food_id']
+		_quantity = _json['quantity']
 		# validate the received values
-		if _table_order_id and _food_id and _id and request.method == 'POST':
+		if _table_order_id and _food_id and _quantity and _id and request.method == 'POST':
 			# save edits
-			sql = "UPDATE food_order SET table_order_id=%s, food_id=%s WHERE id=%s"
-			data = (_table_order_id, _food_id, _id)
+			sql = "UPDATE food_order SET table_order_id=%s, food_id=%s, quantity=%s WHERE id=%s"
+			data = (_table_order_id, _food_id, _quantity, _id)
 			conn = mysql.connect()
 			cursor = conn.cursor()
 			cursor.execute(sql, data)

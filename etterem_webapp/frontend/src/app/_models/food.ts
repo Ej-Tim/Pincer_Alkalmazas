@@ -3,5 +3,4 @@ export class Food {
     name: string;
     price: number;
     category_id: number;
-    rating: number;
   }

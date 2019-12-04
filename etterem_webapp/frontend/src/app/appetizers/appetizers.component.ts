@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 import { Food, Food_order } from '../_models'
 import { FoodService, Food_orderService } from '../_services';
-import { SelectItem } from 'primeng/api/selectitem';
+import { escapeIdentifier } from '@angular/compiler/src/output/abstract_emitter';
 
 @Component({
   selector: 'app-appetizers',
@@ -12,39 +13,55 @@ import { SelectItem } from 'primeng/api/selectitem';
 })
 export class AppetizersComponent implements OnInit {
 
-  foods: Food[] = [];
   foodbyCategory: Food[] = [];
-  foodok: SelectItem[] = [];
-  cat_id: Number;
-  id: Number;
-  val: Number[] = [];
-  food_order: Food_order[];
+  toBeOrdered: Food[];
+  cat_id: number;
+  id: number;
+  val: number[] = [];
+  food_order: Food_order;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService) { }
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private location: Location) { }
 
   ngOnInit() {
     this.cat_id = + this.route.snapshot.paramMap.get('cat_id');
-    this.id = + this.route.snapshot.paramMap.get('id');
+    this.id = + this.route.parent.snapshot.paramMap.get('id');
     this.get_FoodbyCategory();
   }
 
-  get_Foods(): void{
-    this.foodService.getFoods().subscribe(foods => this.foods = foods);
-  }
 
   get_FoodbyCategory(): void{
     this.foodService.getFoodbyCategory(this.cat_id).subscribe(foodbyCategory => this.foodbyCategory = foodbyCategory);
   }
 
-  get_Foodok(): void{
-    this.foodService.getFoods().subscribe(foodok =>{
-      var n = Object.keys(this.foods).length;
-      for(let i = 0; i < n; i++) {
-        this.foodok.push({label: this.foods[i].name, value: this.foods[i].name});
+  rendeles(): void{
+    this.toBeOrdered = [];
+    for (let i = 0; i < this.foodbyCategory.length; i++){
+      if ( this.val[i] > 0) {
+        this.toBeOrdered.push(
+          {
+            name: this.foodbyCategory[i].name,
+            price: this.foodbyCategory[i].price,
+            category_id: this.foodbyCategory[i].category_id
+          });
+      }
     }
-    });
+  }
+
+  init_Food_Order(): void{
+    this.food_order = { table_order_id: this.id, food_id: 3, quantity: 1};
   }
 
   megrendel(): void {
+    this.id = + this.route.parent.snapshot.paramMap.get('id');
+    for (let i = 0; i < this.foodbyCategory.length; i++){
+      if ( this.val[i] > 0){  
+        this.food_order = { table_order_id: this.id, food_id: this.foodbyCategory[i].id, quantity: this.val[i]};
+        this.food_orderService.addFood_order(this.food_order).subscribe(() => this.goBack());
+      }
+    }
   }
+  
+  goBack(): void {
+		this.location.back();
+	}
 }

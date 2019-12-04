@@ -11,7 +11,7 @@ import { OrdersComponent } from './orders/orders.component';
 import { AppetizersComponent } from './appetizers/appetizers.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/user', pathMatch: 'full' },
+  { path: '', redirectTo: '/tables', pathMatch: 'full' },
   { path: 'user', component: UserListComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'edit/:id', component: UserEditComponent },
