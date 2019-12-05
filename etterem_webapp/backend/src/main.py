@@ -583,7 +583,7 @@ def add_table_order():
 			cursor.close()
 			conn.close()	
 
-@app.route('/table_order/update', methods=['POST'])
+@app.route('/table_order/update', methods=['PUT'])
 def update_table_order():
 	conn = None
 	cursor = None
@@ -592,7 +592,7 @@ def update_table_order():
 		_id = _json['id']
 		_reserve = _json['reserve']
 		# validate the received values
-		if _reserve and _id and request.method == 'POST':
+		if _reserve and _id and request.method == 'PUT':
 			# save edits
 			sql = "UPDATE table_order SET reserve=%s WHERE id=%s"
 			data = (_reserve, _id)
@@ -774,7 +774,7 @@ def get_tableFoods(table_order_id):
 	try:
 		conn = mysql.connect()
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
-		cursor.execute("select food.id, food.name, food.category_id, food_order.quantity from food_order join food on food_order.food_id = food.id where table_order_id=%s", table_order_id)
+		cursor.execute("select food.id, food.name, food.category_id, food_order.id as food_order_id, food_order.quantity from food_order join food on food_order.food_id = food.id where table_order_id=%s", table_order_id)
 		rows = cursor.fetchall()
 		resp = jsonify(rows)
 		resp.status_code = 200

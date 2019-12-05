@@ -40,6 +40,7 @@ export class AppetizersComponent implements OnInit {
             id: this.foodbyCategory[i].id,
             name: this.foodbyCategory[i].name,
             price: this.foodbyCategory[i].price,
+            food_order_id: 0,
             quantity: this.val[i]
           });
       }

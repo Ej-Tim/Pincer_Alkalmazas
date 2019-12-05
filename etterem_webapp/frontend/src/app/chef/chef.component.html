@@ -1,6 +1,14 @@
 <table>
+    <tr>
+        <td>Étel</td>
+        <td>Mennyiség</td>
+        <td>Kész</td>
+    </tr>
     <tr *ngFor="let food of foodsByTable">
         <td>{{food.name}}</td> 
         <td>{{food.quantity}}</td>
+        <td>
+            <p-button icon="pi pi-check" (click)="delete_Food_Orders(food)"></p-button>
+        </td>
     </tr>
 </table>

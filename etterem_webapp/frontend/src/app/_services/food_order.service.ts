@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Food_order } from './../_models';
+import { Food_order, OrderedFood } from './../_models';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -48,9 +48,9 @@ export class Food_orderService {
   }
   
   /** DELETE: delete the food_order from the server */
-  deleteFood_order(food_order: Food_order | number) {
-	  if (confirm("Are you sure to delete?")) {
-		const id = typeof food_order === 'number' ? food_order : food_order.id;
+  deleteFood_order(food_order: OrderedFood | number) {
+	  if (confirm("Biztos elkészült az étel?")) {
+		const id = typeof food_order === 'number' ? food_order : food_order.food_order_id;
 		const url = `${this.url}/food_order/delete/${id}`;
 		return this.http.delete(url, httpOptions);
 	  }
