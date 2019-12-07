@@ -3,7 +3,7 @@
 html, body { height: auto; }
 body {
       margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
-      background-image:url(restaurant.jpg);/*ezt kicserélni!*/
+      background-image:url(Restaurant.png);
       background-repeat:no-repeat;
       background-attachment:fixed;
       background-size:cover;

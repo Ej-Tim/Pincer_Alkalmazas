@@ -7,22 +7,33 @@ h1 {
 }
 
 table {
-    width:100%;
+    width: 1230px !important;
+    margin: 0 auto !important; /*hogy a table középen legyen*/
     /*border:solid black;*/
-    vertical-align:central;
+    vertical-align:middle;
     border-spacing:10px;
+}
+
+td {
+    /*border:solid red;*/
+    text-align: center;/*hogy középen legyenenek a td-k*/
+    min-width: 300px;
+    
+}
+table td { /*hogy törje a sort :) */
+    word-wrap: break-word;
+    display: inline-block;
 }
 
 .button {
     background-color: #fe6845;/*háttér szín*/
     border:none;/*keret szín*/
     border-radius:20px;
-    padding: 40px 40px;
     text-align: center;
     text-decoration: none;
     font-family:courier;
     font-weight:bold;
-    font-size: 45px;
+    font-size: 80px;/*gonb mérete a szöveg méretének függvényében*/
     color: #91bd3a; /*betű szín*/
     cursor: pointer;
     transition-duration: 0.7s;
