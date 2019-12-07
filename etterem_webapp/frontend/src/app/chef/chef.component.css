@@ -1,0 +1,22 @@
+
+table {
+    /*border:solid green;*/
+    border-collapse: collapse;
+}
+th {
+    color: #7FFF00;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+}
+
+td {
+    border-bottom: 3px solid #fe6845;
+    padding: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color:#ffa259;
+    font-size: 20px;
+
+}

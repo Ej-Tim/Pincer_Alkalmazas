@@ -1,0 +1,13 @@
+h1 {
+    color:#fa4252;
+    text-align:center;
+    font-family:arial;
+    font-size:250%;
+    font-weight:bold;
+}
+
+div {
+    /*border: solid red;*/
+    font-family:courier;
+    font-weight:bold;
+}

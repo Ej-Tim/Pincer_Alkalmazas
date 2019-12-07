@@ -10,10 +10,10 @@ div {
 }
 .foodstable td {/*foodorderstable(a nagy lista) td elemeire vonatkozik csak*/
     border-bottom: 3px solid #fe6845;
-    padding: 5px;
+    padding: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    color:#ffa259;
+    color:#7FFF00;
     font-size: 20px;
 }
 
