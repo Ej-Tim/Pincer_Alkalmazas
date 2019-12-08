@@ -1,5 +1,5 @@
 h1 {
-    color:#fa4252;
+    color:#fe6845;
     text-align:center;
     font-family:arial;
     font-size:250%;
@@ -10,4 +10,9 @@ div {
     /*border: solid red;*/
     font-family:courier;
     font-weight:bold;
+}
+
+:host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+    background-color: #fe6845;
+    border: 1px solid white;
 }

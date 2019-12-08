@@ -19,17 +19,13 @@ export class FoodsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private categoryService: CategoryService) {}
 
   ngOnInit() {
-    this.get_Categories();
     this.get_Categorik();
-  }
-
-  get_Categories(): void{
-    this.categoryService.getCategories().subscribe(categories => this.categories = categories);
   }
 
   get_Categorik(): void{
     const id = + this.route.snapshot.paramMap.get('id');
     this.categoryService.getCategories().subscribe(catok =>{
+      this.categories = catok;
       var n = Object.keys(this.categories).length;
       for(let i = 0; i < n; i++) {
         this.catok.push({label: this.categories[i].name, routerLink: ['/'+ id +'/foods/'+ this.categories[i].id], routerLinkActiveOptions:{exact:true}});
