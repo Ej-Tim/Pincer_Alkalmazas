@@ -1,12 +1,12 @@
 <table>
     <tr>
-        <th>Étel</th>
         <th>Mennyiség</th>
+        <th>Étel</th>
         <th>Kész</th>
     </tr>
     <tr *ngFor="let food of foodsByTable">
-        <td>{{food.name}}</td> 
         <td>{{food.quantity}}</td>
+        <td>{{food.name}}</td> 
         <td>
             <p-button icon="pi pi-check" (click)="delete_Food_Orders(food)"></p-button>
         </td>

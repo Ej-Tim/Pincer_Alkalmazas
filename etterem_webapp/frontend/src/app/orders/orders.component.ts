@@ -31,7 +31,7 @@ export class OrdersComponent implements OnInit {
     this.table_orderService.getTable_orders().subscribe(tableok =>{
       var n = Object.keys(this.tables).length;
       for(let i = 0; i < n; i++) {
-        this.tableok.push({label: this.tables[i].id.toString(), url: '/orders/'+ this.tables[i].id});
+        this.tableok.push({label: this.tables[i].id.toString(), routerLink: ['/orders/'+ this.tables[i].id]});
       }
     });
   }

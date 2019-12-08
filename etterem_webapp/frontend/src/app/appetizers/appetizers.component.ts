@@ -19,15 +19,18 @@ export class AppetizersComponent implements OnInit {
   val: number[] = [];
   food_order: Food_order;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private location: Location) { }
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private location: Location) {
+    route.params.subscribe(val => {
+    this.get_FoodbyCategory();
+    })
+  }
 
   ngOnInit() {
-    this.cat_id = + this.route.snapshot.paramMap.get('cat_id');
-    this.id = + this.route.parent.snapshot.paramMap.get('id');
-    this.get_FoodbyCategory();
+    
   }
 
   get_FoodbyCategory(): void{
+    this.cat_id = + this.route.snapshot.paramMap.get('cat_id');
     this.foodService.getFoodbyCategory(this.cat_id).subscribe(foodbyCategory => this.foodbyCategory = foodbyCategory);
   }
 

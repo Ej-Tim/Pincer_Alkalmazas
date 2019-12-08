@@ -13,12 +13,10 @@
         <tr>
             <th>Mennyiség</th>
             <th>Étel</th>
-            <th>Ár</th>
         </tr>
         <tr *ngFor="let food of toBeOrdered">
             <td>{{food.quantity}}db</td>
             <td>{{food.name}}</td>
-            <td>{{food.quantity * food.price}}Ft</td>
         </tr>
     </table>
     <button pButton type="button" class="button" label="Megrendel" (click)="megrendel(); display = false"></button>

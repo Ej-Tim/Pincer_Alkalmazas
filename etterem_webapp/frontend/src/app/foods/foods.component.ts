@@ -32,7 +32,7 @@ export class FoodsComponent implements OnInit {
     this.categoryService.getCategories().subscribe(catok =>{
       var n = Object.keys(this.categories).length;
       for(let i = 0; i < n; i++) {
-        this.catok.push({label: this.categories[i].name, url: '/'+ id +'/foods/'+ this.categories[i].id});
+        this.catok.push({label: this.categories[i].name, routerLink: ['/'+ id +'/foods/'+ this.categories[i].id], routerLinkActiveOptions:{exact:true}});
       }
     });
   }

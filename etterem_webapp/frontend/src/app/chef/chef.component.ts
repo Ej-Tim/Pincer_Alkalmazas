@@ -18,12 +18,14 @@ export class ChefComponent implements OnInit {
   food_Orders: Food_order[] = [];
   table: Table_order;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private table_orderService: Table_orderService) { }
-
-  ngOnInit() {
-    this.table_id = + this.route.snapshot.paramMap.get('table_id');
-    this.get_FoodsByTable();
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private table_orderService: Table_orderService) {
+    route.params.subscribe(val => {
+      this.table_id = + this.route.snapshot.paramMap.get('table_id');
+      this.get_FoodsByTable();
+    })
   }
+
+  ngOnInit() {}
 
   get_FoodsByTable(): void{
     this.foodService.getFoodsbyTable(this.table_id).subscribe(foodsByTable => this.foodsByTable = foodsByTable);
