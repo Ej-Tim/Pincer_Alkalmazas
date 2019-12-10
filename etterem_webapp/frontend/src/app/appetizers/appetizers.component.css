@@ -3,6 +3,7 @@ div {
     overflow-y:auto;
     /*border:solid violet;*/
     max-height: 500px !important;
+    padding-bottom: 10px;
 }
 .foodstable {
     /*border:solid green;*/
@@ -13,21 +14,20 @@ div {
     padding: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    color:#7FFF00;
+    color:#fe6845;
     font-size: 20px;
 }
 
 .orderstable {
-    border:3px solid thistle;
     border-collapse: collapse;
 }
 
 .orderstable td {/*orderstable(megrendelet) td elemeire vonatkozik csak*/
-    border-bottom:1px solid magenta;
+    border-bottom: 2px solid #fe6845;
     padding: 3px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: normal;
-    color:red;
+    color:#fe6845;
     font-size: 15px;
 }
 
@@ -53,8 +53,20 @@ div {
 }
 
 :host ::ng-deep .ui-spinner .ui-spinner-up {
-    background-color: #7FFF00;
+    background-color: #fe6845;
+    border: 1px solid white;
+}
+:host ::ng-deep .ui-spinner .ui-spinner-up:hover {
+    background-color: white;
+    color: #fe6845;
+    border: 1px solid #fe6845;
 }
 :host ::ng-deep .ui-spinner .ui-spinner-down {
-    background-color: #7FFF00;
+    background-color: #fe6845;
+    border: 1px solid white;
+}
+:host ::ng-deep .ui-spinner .ui-spinner-down:hover {
+    background-color: white;
+    color: #fe6845;
+    border: 1px solid #fe6845;
 }

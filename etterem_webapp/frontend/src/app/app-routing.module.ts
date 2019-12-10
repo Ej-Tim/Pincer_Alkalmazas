@@ -20,7 +20,12 @@ const routes: Routes = [
   { path: 'tables', component: TablesComponent },
   { path: ':id/foods', component: FoodsComponent, children: [
     {
-      path: ':cat_id', component: AppetizersComponent
+      path:'',
+      redirectTo: '1',
+      pathMatch: 'full' 
+    },
+    {
+      path: ':cat_id', component: AppetizersComponent,
     }
   ]},
   { path: 'orders', component: OrdersComponent, children: [

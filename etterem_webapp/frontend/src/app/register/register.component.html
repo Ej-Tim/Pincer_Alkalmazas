@@ -1,23 +1,18 @@
-<div>
-    <h2>Register Detail</h2>
+<div class="center">
+    <h2>Registration</h2>
     <div>
       <p>
-          <label>Name:
-              <input [(ngModel)]="user.username" placeholder="User Name"/>
-          </label>
+        <input [(ngModel)]="user.username" placeholder="UserName"/>
       </p>
       <p>
-          <label>Role:
-              <input [(ngModel)]="user.role" placeholder="User Role"/>
-          </label>
+        <select [(ngModel)]="selectedValue">
+            <option *ngFor="let role of roles" [value]="role.id">{{role.name}}</option>
+          </select>
       </p>
       <p>
-          <label>Password:
-              <input type="password" [(ngModel)]="user.password" placeholder="User Password"/>
-          </label>
+        <input type="password" [(ngModel)]="user.password" placeholder="Password"/>
       </p>
     </div>
-    <button (click)="goBack()">go back</button>
-     
-    <button (click)="save()">save</button>
+    <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
   </div>

@@ -22,6 +22,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SpinnerModule } from 'primeng/spinner';
+import { DropdownModule } from 'primeng/dropdown'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SpinnerModule } from 'primeng/spinner';
     SidebarModule,
     SelectButtonModule,
     TabMenuModule,
-    SpinnerModule
+    SpinnerModule,
+    DropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

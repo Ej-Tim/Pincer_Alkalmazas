@@ -3,20 +3,32 @@ table {
     /*border:solid green;*/
     border-collapse: collapse;
 }
-th {
-    color: #7FFF00;
-    font-size: 20px;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-}
 
 td {
     border-bottom: 3px solid #fe6845;
     padding: 10px;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-weight: bold;
-    color:#ffa259;
+    color:#fe6845;
     font-size: 20px;
+}
 
+.button {
+    background-color: #fe6845;
+    border:1px solid white !important;
+    border-radius: 3px;
+    text-align: center;
+    text-decoration: none;
+    font-family:courier;
+    font-weight:bold;
+    font-size: 12px;
+    cursor: pointer;
+    color: white;
+    transition-duration: 0.2s;
+}
+
+.button:hover {
+    background-color: white !important;
+    color:#fe6845 !important;
+    border: 1px solid #fe6845 !important;
 }

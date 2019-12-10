@@ -10,6 +10,28 @@ div {
     /*border: solid red;*/
     font-family:courier;
     font-weight:bold;
+    padding-bottom: 10px;
+}
+
+.asd {
+    background-color: #fe6845;
+    border:2px solid white !important;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family:courier;
+    font-weight:bold;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    transition-duration: 0.7s;
+}
+
+.asd:hover {
+    background-color: white !important;
+    color:#fe6845 !important;
+    border: 2px solid #fe6845 !important;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70),0 17px 50px 0 rgba(0,0,0,0.70);
 }
 
 :host ::ng-deep .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
