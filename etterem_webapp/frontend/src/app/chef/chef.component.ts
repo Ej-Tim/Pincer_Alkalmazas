@@ -34,7 +34,9 @@ export class ChefComponent implements OnInit {
   
   updateTable(): void {		
     this.get_FoodsByTable();
-    if (this.foodsByTable.length != 0){
+    console.log(this.foodsByTable.length)
+    if (this.foodsByTable.length - 1 == 0){
+      console.log(this.foodsByTable.length)
       this.table_orderService.updateTable_order(this.table).subscribe(success => this.get_FoodsByTable());
     }
 	}
