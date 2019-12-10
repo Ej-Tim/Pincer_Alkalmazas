@@ -19,7 +19,7 @@
             <td>{{food.name}}</td>
         </tr>
     </table>
-    <button pButton type="button" class="button" label="Megrendel" (click)="megrendel(); display = false"></button>
+    <button pButton type="button" class="button" label="Megrendel" (click)="megrendel(); updateTable(); display = false"></button>
 </p-sidebar>
 <p>
     <button type="text" class="button" (click)="display = true; rendeles()" pButton label="Rendelés"></button>

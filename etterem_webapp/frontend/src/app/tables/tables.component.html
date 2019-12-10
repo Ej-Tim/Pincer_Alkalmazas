@@ -2,7 +2,13 @@
 <table>
   <tr>
     <td *ngFor="let table of tables">
-        <button pButton type="button" class="button" label="{{table.id}}" routerLink="/{{table.id}}/foods" ></button>
+      <ng-container *ngIf="table.reserve; then thenTemplate; else elseTemplate"></ng-container>
+      <ng-template #thenTemplate>
+        <button pButton type="button" class="reserved" label="{{table.id}}" routerLink="/{{table.id}}/foods" ></button>
+      </ng-template>
+      <ng-template #elseTemplate>
+          <button pButton type="button" class="free" label="{{table.id}}" routerLink="/{{table.id}}/foods" ></button>
+      </ng-template>        
     </td>
   </tr>
 </table>

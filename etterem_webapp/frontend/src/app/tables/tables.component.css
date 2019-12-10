@@ -46,7 +46,7 @@ table td { /*hogy törje a sort :) */
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70),0 17px 50px 0 rgba(0,0,0,0.70);
 }
 
-.button {
+.free {
     background-color: #fe6845;/*háttér szín*/
     border:none;/*keret szín*/
     border-radius:20px;
@@ -60,7 +60,28 @@ table td { /*hogy törje a sort :) */
     transition-duration: 0.7s;
 }
 
-.button:hover {
+.free:hover {
+    background-color:white !important;
+    color:#fe6845 !important;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70),0 17px 50px 0 rgba(0,0,0,0.70);
+}
+
+.reserved {
+    background-color: #fe6845;/*háttér szín*/
+    border:none;/*keret szín*/
+    border-radius:20px;
+    text-align: center;
+    text-decoration: none;
+    font-family:courier;
+    font-weight:bold;
+    font-size: 80px;/*gonb mérete a szöveg méretének függvényében*/
+    color: white; /*betű szín*/
+    cursor: pointer;
+    transition-duration: 0.7s;
+    opacity: 0.5;
+}
+
+.reserved:hover {
     background-color:white !important;
     color:#fe6845 !important;
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.70),0 17px 50px 0 rgba(0,0,0,0.70);

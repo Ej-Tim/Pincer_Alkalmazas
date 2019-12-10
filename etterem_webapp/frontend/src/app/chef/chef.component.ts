@@ -22,6 +22,7 @@ export class ChefComponent implements OnInit {
     route.params.subscribe(val => {
       this.table_id = + this.route.snapshot.paramMap.get('table_id');
       this.get_FoodsByTable();
+      this.table = {id: this.table_id, reserve: "0"};
     })
   }
 
@@ -32,19 +33,13 @@ export class ChefComponent implements OnInit {
   }
   
   updateTable(): void {		
-		this.table_orderService.updateTable_order(this.table).subscribe(success => this.get_FoodsByTable());
+    this.get_FoodsByTable();
+    if (this.foodsByTable.length != 0){
+      this.table_orderService.updateTable_order(this.table).subscribe(success => this.get_FoodsByTable());
+    }
 	}
   
   delete_Food_Orders(food_Order: OrderedFood): void{
-    this.food_orderService.deleteFood_order(food_Order).subscribe(success => {this.get_FoodsByTable()} );    
-  }
-
-  unReserve(): void{
-    this.get_FoodsByTable();
-    if (this.foodsByTable){
-      this.table_id = + this.route.snapshot.paramMap.get('table_id');
-      this.table = {id: 14, reserve: 0};
-      this.updateTable();
-    }
+    this.food_orderService.deleteFood_order(food_Order).subscribe(success => {this.get_FoodsByTable()} );
   }
 }

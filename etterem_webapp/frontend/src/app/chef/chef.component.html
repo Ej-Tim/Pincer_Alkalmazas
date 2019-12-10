@@ -3,7 +3,7 @@
         <td>{{food.quantity}}</td>
         <td>{{food.name}}</td> 
         <td>
-            <button pButton type="button" class="button" icon="pi pi-check" (click)="delete_Food_Orders(food)"></button>
+            <button pButton type="button" class="button" icon="pi pi-check" (click)="delete_Food_Orders(food); updateTable()"></button>
         </td>
     </tr>
 </table>

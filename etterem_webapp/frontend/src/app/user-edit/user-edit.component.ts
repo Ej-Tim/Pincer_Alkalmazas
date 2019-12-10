@@ -26,6 +26,7 @@ export class UserEditComponent implements OnInit {
 	}
 	
 	save(): void {		
+		console.log(this.user);
 		this.userService.updateUser(this.user).subscribe(success=> {this.goBack();});
 	}
 

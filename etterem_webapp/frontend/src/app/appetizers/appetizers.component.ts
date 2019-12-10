@@ -2,8 +2,8 @@ import { Component, OnInit, getDebugNode } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Food, Food_order, OrderedFood } from '../_models'
-import { FoodService, Food_orderService } from '../_services';
+import { Food, Food_order, OrderedFood, Table_order } from '../_models'
+import { FoodService, Food_orderService, Table_orderService } from '../_services';
 
 @Component({
   selector: 'app-appetizers',
@@ -18,16 +18,22 @@ export class AppetizersComponent implements OnInit {
   id: number;
   val: number[] = [];
   food_order: Food_order;
+  table: Table_order;
 
-  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private location: Location) {
+  constructor(private route: ActivatedRoute, private foodService: FoodService, private food_orderService: Food_orderService, private table_orderService: Table_orderService, private location: Location) {
     route.params.subscribe(val => {
+    this.id = + this.route.parent.snapshot.paramMap.get('id');
     this.get_FoodbyCategory();
+    this.table = {id: this.id, reserve: "1"};
     })
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
+
+  updateTable(): void {		
+    this.table_orderService.updateTable_order(this.table).subscribe();
+    console.log(this.table);
+	}
 
   get_FoodbyCategory(): void{
     this.cat_id = + this.route.snapshot.paramMap.get('cat_id');
