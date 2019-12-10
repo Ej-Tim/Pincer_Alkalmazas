@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }    from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +22,23 @@ import { SidebarModule } from 'primeng/sidebar';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { SpinnerModule } from 'primeng/spinner';
+<<<<<<< HEAD
 import { DropdownModule } from 'primeng/dropdown'
+=======
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './_services/auth.service';
+import { AuthGuardService } from './_services/auth-guard.service';
+import { HomeComponent } from './home/home.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { PasswordModule } from 'primeng/password';
+import { DropdownModule } from 'primeng/dropdown';
+
+const routes: Routes = [
+  {path: '', component: HomeComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent}
+]
+>>>>>>> e4f6c5f93f6cbd113197e615d0827538bf258a44
 
 @NgModule({
   declarations: [
@@ -35,7 +51,9 @@ import { DropdownModule } from 'primeng/dropdown'
     TablesComponent,
     FoodsComponent,
     AppetizersComponent,
-    ChefComponent
+    ChefComponent,
+    LoginComponent,
+    HomeComponent
 ],
   imports: [
     BrowserModule,
@@ -48,9 +66,16 @@ import { DropdownModule } from 'primeng/dropdown'
     SelectButtonModule,
     TabMenuModule,
     SpinnerModule,
+<<<<<<< HEAD
     DropdownModule
+=======
+    PasswordModule,
+    InputTextModule,
+    DropdownModule,
+    RouterModule.forRoot( routes )
+>>>>>>> e4f6c5f93f6cbd113197e615d0827538bf258a44
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

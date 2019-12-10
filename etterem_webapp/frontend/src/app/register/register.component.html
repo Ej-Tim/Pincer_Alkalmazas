@@ -2,6 +2,7 @@
     <h2>Registration</h2>
     <div>
       <p>
+<<<<<<< HEAD
         <input [(ngModel)]="user.username" placeholder="UserName"/>
       </p>
       <p>
@@ -11,6 +12,15 @@
       </p>
       <p>
         <input type="password" [(ngModel)]="user.password" placeholder="Password"/>
+=======
+        <input pInputText id="u_ser" placeholder="User Name"/>
+      </p>
+      <p>
+        <p-dropdown [options]="roles" optionLabel="label" [(ngModel)]="r_id" ></p-dropdown>
+      </p>
+      <p>
+        <input type="password" pPassword id="pass" placeholder="User Password"/>
+>>>>>>> e4f6c5f93f6cbd113197e615d0827538bf258a44
       </p>
     </div>
     <button (click)="goBack()">Back</button>
