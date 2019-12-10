@@ -9,6 +9,10 @@ verify_ssl = true
 flask-table = "*"
 flask-mysql = "*"
 flask-cors = "*"
+crypto = "*"
+flask-bcrypt = "*"
+flask-sqlalchemy = "*"
+jwt = "*"
 
 [requires]
 python_version = "3.7"

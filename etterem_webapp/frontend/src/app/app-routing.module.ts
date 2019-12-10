@@ -1,4 +1,4 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { UserListComponent } from './user-list/user-list.component';
@@ -12,7 +12,7 @@ import { AppetizersComponent } from './appetizers/appetizers.component';
 import { ChefComponent } from './chef/chef.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/tables', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'user', component: UserListComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'edit/:id', component: UserEditComponent },
